@@ -131,7 +131,7 @@ function ResultTable({
     <section className="min-w-0 rounded-lg border border-slate-200 bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
         <h2 className="text-[16px] font-semibold text-slate-950">{title}</h2>
-        <span className="text-[16px] text-slate-500">{results.length}</span>
+        <span className="text-[14px] text-slate-500">{results.length}</span>
       </div>
       <div>
         <table className="award-results-table w-full border-collapse text-left text-[15px]">

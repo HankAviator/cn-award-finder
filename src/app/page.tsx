@@ -44,6 +44,7 @@ const copy = {
     disclaimer:
       "结果为估算值：按机场到机场大圆距离和静态兑换表规则计算。实际航司航线里程、经停/中转路径和奖励票余位可能不同。",
     special: "特殊航线规则",
+    footer: "这是一个 Hi m8 旗下的项目。",
     tableHeaders: [
       "目的地",
       "估算机场距离",
@@ -79,6 +80,7 @@ const copy = {
     disclaimer:
       "Results are estimates: calculated from airport-to-airport great-circle distance and static award chart rules. Actual airline route mileage, routings, and award availability may differ.",
     special: "Special route rule",
+    footer: "This is a project under Hi m8.",
     tableHeaders: [
       "Destination",
       "Estimated airport distance",
@@ -486,6 +488,29 @@ export default function Home() {
             )}
           </div>
         </div>
+
+        <footer className="mt-8 border-t border-slate-200 py-5 text-left text-sm text-slate-500">
+          {(() => {
+            const [before, after] = (labels.footer as string).split("Hi m8");
+
+            return (
+              <>
+                {before}
+                <em>
+                  <a
+                    className="font-medium text-teal-700 underline decoration-teal-300 underline-offset-4 transition hover:text-teal-900"
+                    href="https://him8.org"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Hi m8
+                  </a>
+                </em>
+                {after}
+              </>
+            );
+          })()}
+        </footer>
       </div>
     </main>
   );

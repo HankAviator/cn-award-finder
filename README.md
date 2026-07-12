@@ -79,7 +79,36 @@ npm run dev      # Start local Next.js dev server
 npm run build    # Build production app
 npm run lint     # Type-check with TypeScript
 npm test         # Run unit tests
+npm run preview  # Build and run in the local Cloudflare Workers runtime
+npm run deploy   # Build and deploy to Cloudflare Workers
+npm run deploy:dry-run # Build and validate deployment without publishing
+npm run cf-typegen # Regenerate Cloudflare binding types
 ```
+
+## Deploy to Cloudflare Workers
+
+The repository is configured for Cloudflare Workers through the OpenNext adapter.
+
+1. Install dependencies with `npm install`.
+2. Authenticate locally with `npx wrangler login`.
+3. Run `npm run preview` to verify the app in the Workers runtime.
+4. Run `npm run deploy:dry-run` to validate the complete deployment locally.
+5. Run `npm run deploy` to publish the Worker and attach its custom domain.
+
+For a non-interactive or CI deployment, copy `.env.example` to `.env` and set
+`CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_PROJECT_NAME`,
+and `CUSTOM_DOMAIN`. Do not commit `.env`.
+Create an API token with permission to edit Workers scripts in the target account.
+`CUSTOM_DOMAIN` must contain only the hostname, without `https://` or a path.
+
+The app currently has no runtime secrets. If one is added later, use
+`.dev.vars` locally (see `.dev.vars.example`) and upload its production value
+with `npx wrangler secret put SECRET_NAME`. Then run `npm run cf-typegen` after
+adding or changing bindings in `wrangler.jsonc`.
+
+For Cloudflare Workers Builds, use `npm run deploy` as the deploy command and
+add any build-time `NEXT_PUBLIC_*` or server variables in the dashboard's
+**Build Variables and secrets** settings.
 
 ## Testing Coverage
 

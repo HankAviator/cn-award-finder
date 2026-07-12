@@ -1,0 +1,4 @@
+# Copy this file to `.dev.vars` when the Worker needs runtime secrets locally.
+# Add production secrets with: npx wrangler secret put SECRET_NAME
+#
+# EXAMPLE_SECRET=replace-me

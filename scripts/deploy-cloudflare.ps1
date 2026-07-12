@@ -54,15 +54,14 @@ if ($customDomain -match '^https?://' -or $customDomain.Contains('/')) {
 }
 
 Write-Host "Building Worker '$workerName' for Cloudflare..."
-& npx opennextjs-cloudflare build
+& npm run build
 if ($LASTEXITCODE -ne 0) {
-    throw "OpenNext build failed with exit code $LASTEXITCODE."
+    throw "Next.js static export failed with exit code $LASTEXITCODE."
 }
 
 $deployArguments = @(
     "wrangler",
     "deploy",
-    ".open-next/worker.js",
     "--name", $workerName,
     "--domain", $customDomain
 )

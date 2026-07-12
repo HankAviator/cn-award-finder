@@ -1,12 +1,10 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "cn-award-finder",
-  "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-12",
-  "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "directory": "./out",
+    "not_found_handling": "404-page"
   },
   "observability": {
     "enabled": true

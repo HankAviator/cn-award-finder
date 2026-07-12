@@ -87,11 +87,13 @@ npm run cf-typegen # Regenerate Cloudflare binding types
 
 ## Deploy to Cloudflare Workers
 
-The repository is configured for Cloudflare Workers through the OpenNext adapter.
+The repository is configured as a Next.js static export deployed through
+Cloudflare Workers Static Assets. This workflow runs natively on Windows with
+PowerShell 7 and does not require WSL.
 
 1. Install dependencies with `npm install`.
 2. Authenticate locally with `npx wrangler login`.
-3. Run `npm run preview` to verify the app in the Workers runtime.
+3. Run `npm run preview` to build and verify the app in the Workers runtime.
 4. Run `npm run deploy:dry-run` to validate the complete deployment locally.
 5. Run `npm run deploy` to publish the Worker and attach its custom domain.
 
